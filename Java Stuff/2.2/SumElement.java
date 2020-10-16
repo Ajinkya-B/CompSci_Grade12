@@ -1,7 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+
+/**
+ * ICS4U0 Computer Science, Grade 12
+ * @fileame SumElement.java
+ * @author Ajinkya
+ * @date October 12, 2020
+ * @version 1.0
+ * @Description: A program that has the ability to add, store, remove and
+ * display integer values in an array. It also can find sum of all/odd/even 
+ * elements in the array.
  */
 
 import java.util.*;
@@ -28,32 +34,32 @@ public class SumElement extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        DisplayArr = new javax.swing.JTextArea();
+        displayArr = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        IntVal = new javax.swing.JTextField();
+        intVal = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        DisplaySum = new javax.swing.JTextField();
+        displaySum = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        DisplayStatus = new javax.swing.JTextField();
+        displayStatus = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        DisplayArr.setEditable(false);
-        DisplayArr.setColumns(20);
-        DisplayArr.setRows(5);
-        jScrollPane1.setViewportView(DisplayArr);
+        displayArr.setEditable(false);
+        displayArr.setColumns(20);
+        displayArr.setRows(5);
+        jScrollPane1.setViewportView(displayArr);
 
         jLabel1.setText("Enter An Integer: ");
 
-        IntVal.addActionListener(new java.awt.event.ActionListener() {
+        intVal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IntValActionPerformed(evt);
             }
@@ -101,14 +107,14 @@ public class SumElement extends javax.swing.JFrame {
             }
         });
 
-        DisplaySum.setEditable(false);
+        displaySum.setEditable(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("STATUS");
 
-        DisplayStatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        DisplayStatus.addActionListener(new java.awt.event.ActionListener() {
+        displayStatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        displayStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DisplayStatusActionPerformed(evt);
             }
@@ -132,7 +138,7 @@ public class SumElement extends javax.swing.JFrame {
                         .addGap(49, 49, 49)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(IntVal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(intVal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -141,7 +147,7 @@ public class SumElement extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(DisplaySum)
+                                .addComponent(displaySum)
                                 .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 53, Short.MAX_VALUE)
@@ -162,7 +168,7 @@ public class SumElement extends javax.swing.JFrame {
                 .addGap(124, 124, 124)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(DisplayStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(displayStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -173,7 +179,7 @@ public class SumElement extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(IntVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(intVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -188,13 +194,13 @@ public class SumElement extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jButton5)
                         .addGap(11, 11, 11)
-                        .addComponent(DisplaySum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(displaySum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton6)))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(DisplayStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(displayStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -205,25 +211,60 @@ public class SumElement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_IntValActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    // TODO add your handling code here:
+        try{
+            int temp;
+            String t;
+
+
+            temp = Integer.parseInt(intVal.getText()); // turns the string input from user to a integer
+            numArr.add(temp); // adds the var to the array
+            t = "";
+
+
+            for(int i = 0; i < numArr.size();i++){ 		      
+                t += Integer.toString(numArr.get(i)) + "\n";	
+            }   
+
+
+            displayArr.setText(t);
+            displayStatus.setText("SUCCESSFUL!");
+
+        }catch(IllegalArgumentException e){
+            displayStatus.setText("FAILED!");
+            System.out.println("Please Enter An Integer!");
+        }catch(Exception e){
+            displayStatus.setText("FAILED!");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    // removes 1st iteration user specified elemet from array
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try{
             int temp;
-            temp = Integer.parseInt(IntVal.getText());
-            numArr.remove(Integer.valueOf(temp));
-
             String t;
+            
+            
+            temp = Integer.parseInt(intVal.getText()); // turns the string input from user to a integer
+            numArr.remove(Integer.valueOf(temp));  // removes the first iteration of user input from the array
             t = "";
+            
+            
             for(int i = 0; i < numArr.size();i++){ 		      
                 t += Integer.toString(numArr.get(i)) + "\n";	
             }   
-            DisplayArr.setText(t);
-            DisplayStatus.setText("SUCCESSFUL!");
+            
+            
+            displayArr.setText(t);
+            displayStatus.setText("SUCCESSFUL!");
+            
         }catch(IllegalArgumentException e){
-            DisplayStatus.setText("FAILED!");
+            displayStatus.setText("FAILED!");
             System.out.println("Please Enter An Integer!");
         }catch(Exception e){
-            DisplayStatus.setText("FAILED!");
+            displayStatus.setText("FAILED!");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -231,16 +272,21 @@ public class SumElement extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{    
             String t = "";
-            int total = 0;
+            int total = 0;  
+            
+            
             for(int i = 0; i < numArr.size();i++){ 		      
                 t += Integer.toString(numArr.get(i)) + "\n";	
                 total += numArr.get(i);
             }   
-            DisplayArr.setText(t);
-            DisplaySum.setText("The total of all entries is: " + Integer.toString(total));
-            DisplayStatus.setText("SUCCESSFUL!");
+            
+            
+            displayArr.setText(t);
+            displaySum.setText("The total of all entries is: " + Integer.toString(total));
+            displayStatus.setText("SUCCESSFUL!");
+            
         }catch(Exception e){
-        DisplayStatus.setText("FAILED!");
+        displayStatus.setText("FAILED!");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -249,18 +295,23 @@ public class SumElement extends javax.swing.JFrame {
         try{
             String t = "";
             int total = 0;
+            
+            
             for(int i = 0; i < numArr.size();i++){ 	
                 int a = numArr.get(i);
-                if(a%2 != 0){
+                if(a%2 != 0){ // modulo operator, returns the remainder (all even numbers return 0)
                     total += a;
                     t += Integer.toString(a) + "\n";
                 }
             }   
-            DisplayArr.setText(t);
-            DisplaySum.setText("The total of all ODD entries is: " + Integer.toString(total));
-            DisplayStatus.setText("SUCCESSFUL!");
+            
+            
+            displayArr.setText(t);
+            displaySum.setText("The total of all ODD entries is: " + Integer.toString(total));
+            displayStatus.setText("SUCCESSFUL!");
+            
         }catch(Exception e){
-            DisplayStatus.setText("FAILED!");
+            displayStatus.setText("FAILED!");
             System.out.println("There Was An Error!");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -270,18 +321,23 @@ public class SumElement extends javax.swing.JFrame {
         try{
             String t = "";
             int total = 0;
+            
+            
             for(int i = 0; i < numArr.size();i++){ 	
                 int a = numArr.get(i);
-                if(a%2 == 0){
+                if(a%2 == 0){ // modulo operator, returns the remainder (all even numbers return 0)
                     total += a;
                     t += Integer.toString(a) + "\n";
                 }
-            }   
-            DisplayArr.setText(t);
-            DisplaySum.setText("The total of all EVEN entries is: " + Integer.toString(total));
-            DisplayStatus.setText("SUCCESSFUL!");
+            } 
+            
+            
+            displayArr.setText(t);
+            displaySum.setText("The total of all EVEN entries is: " + Integer.toString(total));
+            displayStatus.setText("SUCCESSFUL!");
+            
         }catch(Exception e){
-            DisplayStatus.setText("FAILED!");
+            displayStatus.setText("FAILED!");
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -289,28 +345,6 @@ public class SumElement extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        try{
-            int temp;
-            temp = Integer.parseInt(IntVal.getText());
-            numArr.add(temp);
-
-            String t;
-            t = "";
-            for(int i = 0; i < numArr.size();i++){ 		      
-                t += Integer.toString(numArr.get(i)) + "\n";	
-            }   
-            DisplayArr.setText(t);
-            DisplayStatus.setText("SUCCESSFUL!");
-        }catch(IllegalArgumentException e){
-            DisplayStatus.setText("FAILED!");
-            System.out.println("Please Enter An Integer!");
-        }catch(Exception e){
-            DisplayStatus.setText("FAILED!");
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void DisplayStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisplayStatusActionPerformed
         // TODO add your handling code here:
@@ -352,10 +386,10 @@ public class SumElement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea DisplayArr;
-    private javax.swing.JTextField DisplayStatus;
-    private javax.swing.JTextField DisplaySum;
-    private javax.swing.JTextField IntVal;
+    private javax.swing.JTextArea displayArr;
+    private javax.swing.JTextField displayStatus;
+    private javax.swing.JTextField displaySum;
+    private javax.swing.JTextField intVal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

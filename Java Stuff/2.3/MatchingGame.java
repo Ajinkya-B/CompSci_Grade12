@@ -5,15 +5,14 @@
  * @author Ajinkya
  * @date October 8, 2020
  * @version 1.0
- * @Description: application that calculates the number of hours a person 
- * has spent sleeping from the time [s]he was born until today.
- * It accounts for leap year, 30/31 days a month, and other special cases, also,
- * it auto-sets current date and doesn't allow user to enter his birth
- * date as the current date or a date in future
+ * @Description: A modification to the matching game that dosen't require a 
+ * Guess Again button, it changes the textfield to Congratulations when user 
+ * wins, and has 12 cards with a AmongUs theme.
  */
 
 import java.util.*;
 import javax.swing.ImageIcon;
+import javax.swing.Timer;
 
 /**
  *
@@ -26,23 +25,28 @@ public class MatchingGame extends javax.swing.JFrame {
 
     ArrayList<String> cards = new ArrayList<>();
     ArrayList<String> set = new ArrayList<>();
-    ImageIcon a = new ImageIcon(path + "blue.png");
-    ImageIcon b = new ImageIcon(path + "orange.png");
-    ImageIcon c = new ImageIcon(path + "cyan.png");
-    ImageIcon d = new ImageIcon(path + "purple.png");
-    ImageIcon e = new ImageIcon(path + "red.png");
-    ImageIcon f = new ImageIcon(path + "green.png");
-    ImageIcon back = new ImageIcon(path + "cardBack.jpg");
-    ImageIcon done = new ImageIcon(path + "cardDone.png");
+    ImageIcon a = new ImageIcon(path + "blue.png"); // https://among-us.fandom.com/wiki/Red?file=2_blue.png
+    ImageIcon b = new ImageIcon(path + "orange.png"); // https://among-us.fandom.com/wiki/Red?file=5_orange.png
+    ImageIcon c = new ImageIcon(path + "cyan.png"); // https://among-us.fandom.com/wiki/Red?file=11_cyan.png
+    ImageIcon d = new ImageIcon(path + "purple.png"); // https://among-us.fandom.com/wiki/Red?file=9_purple.png
+    ImageIcon e = new ImageIcon(path + "red.png"); // https://among-us.fandom.com/wiki/Red?file=1_red.png
+    ImageIcon f = new ImageIcon(path + "green.png"); // https://among-us.fandom.com/wiki/Red?file=3_green.png
+    ImageIcon back = new ImageIcon(path + "cardBack.jpg"); // https://cdn.discordapp.com/icons/755653745567727686/328e5f23b75f9420cf640c4313a7278e.png
+    ImageIcon done = new ImageIcon(path + "cardDone.png"); // https://among-us.fandom.com/wiki/Red?file=Kill-0.png
     int count, c1, c2, card1, card2;
     int cardsLeft = 12;
     int[] change = new int[12];
+    Timer delayTime = new Timer (2000, e ->{
+        guessCard();
+    });
 
     /**
      * Creates new form MatchingGame
      */
     public MatchingGame() {
         initComponents();
+        resetCards();
+        setPlay();
     }
 
     /**
@@ -77,7 +81,7 @@ public class MatchingGame extends javax.swing.JFrame {
 
         mainTitle.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         mainTitle.setForeground(new java.awt.Color(255, 5, 5));
-        mainTitle.setText("Cars Matching Game");
+        mainTitle.setText("Matching Game");
 
         Card1.setIcon(new javax.swing.ImageIcon("./cardBack.jpg")); // NOI18N
         Card1.addActionListener(new java.awt.event.ActionListener() {
@@ -265,38 +269,7 @@ public class MatchingGame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // functioning exit button
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnExitActionPerformed
-
-    // starts the game and places cards randomly
-    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
-        try{
-            /** Set change array */
-            for (int z = 0; z <= 11; z++) {
-                change[z] = 1;
-            }
-
-            /** Assign cards at random */
-            String temp;
-            for (int x = 0; x <= 7; x++) {
-                for (int y = 1; y <= 2; y++) {
-                    temp = Integer.toString(x);
-                    set.add(temp);
-                }
-            }
-
-            for (int x=0; x <= 11; x++) {
-                double index = Math.floor(Math.random()*(12-x));
-                int index1 = (int)index;
-                cards.add(set.get(index1));
-                set.remove(set.get(index1));
-            }
-        }catch(Exception e){
-            System.out.println("There was an Error!");
-        }
-    }
+    
     // method to check if cards match and then decide whether filp the cark 
     // back over or mark it as done
     private void guessCard(){
@@ -392,6 +365,70 @@ public class MatchingGame extends javax.swing.JFrame {
             System.out.println("There was an Error!");
         }
     }
+    
+    
+    // starts the game and places cards randomly
+    private void setPlay(){
+        try{
+            /** Set change array */
+            for (int z = 0; z <= 11; z++) {
+                change[z] = 1;
+            }
+
+            /** Assign cards at random */
+            String temp;
+            for (int x = 0; x <= 7; x++) {
+                for (int y = 1; y <= 2; y++) {
+                    temp = Integer.toString(x);
+                    set.add(temp);
+                }
+            }
+
+            for (int x=0; x <= 11; x++) {
+                double index = Math.floor(Math.random()*(12-x));
+                int index1 = (int)index;
+                cards.add(set.get(index1));
+                set.remove(set.get(index1));
+            }
+        }catch(Exception e){
+            System.out.println("There was an Error!");
+        }
+    }
+    
+    
+    private void resetCards(){
+        Card1.setIcon(back);
+        Card2.setIcon(back);
+        Card3.setIcon(back);
+        Card4.setIcon(back);
+        Card5.setIcon(back);
+        Card6.setIcon(back);
+        Card7.setIcon(back);
+        Card8.setIcon(back);
+        Card9.setIcon(back);
+        Card10.setIcon(back);
+        Card11.setIcon(back);
+        Card12.setIcon(back);
+    }
+    
+    
+    // functioning exit button
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    
+    
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
+        change = new int[12];
+        cards.clear();
+        set.clear();      
+        resetCards(); 
+        setPlay();
+        txtInstruction.setText("Find the matching cards");
+    }
+    
+    
     // reveal card1
     private void Card1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Card1ActionPerformed
         // TODO add your handling code here:
@@ -420,7 +457,8 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[0] = 0;
-                guessCard();
+                
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -455,7 +493,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[1] = 0;
-                guessCard();
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -490,7 +528,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[2] = 0;
-                guessCard();
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -525,7 +563,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[4] = 0;
-                guessCard();
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -560,7 +598,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[3] = 0;
-                guessCard();
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -595,7 +633,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[5] = 0;
-                guessCard();
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -630,7 +668,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[6] = 0;
-                guessCard();
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -665,7 +703,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[7] = 0;
-                guessCard();
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -700,7 +738,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[8] = 0;
-                guessCard();
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -735,7 +773,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[9] = 0;
-                guessCard();
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -770,7 +808,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[10] = 0;
-            	guessCard();
+            	delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
@@ -805,7 +843,7 @@ public class MatchingGame extends javax.swing.JFrame {
             } else if (count == 2) {
                 c2 = Integer.parseInt(temp);
                 change[11] = 0;
-                guessCard();
+                delayTime.start();
             }
         }catch(Exception e){
             System.out.println("There was an Error!");
