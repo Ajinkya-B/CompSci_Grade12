@@ -1,0 +1,19 @@
+<game>
+<!--This is the database for users of a game. It stores their username, 
+highscore, and current level--> 
+	<user>
+		<username>Ajinkya</username>
+		<highscore>1313</highscore>
+		<level>19</level>
+	</user>
+        <user>
+		<username>Japman</username>
+		<highscore>38536</highscore>
+		<level>56</level>
+	</user>
+   	<user>
+		<username>Jacky</username>
+		<highscore>35</highscore>
+		<level>3</level>
+	</user>
+</game>

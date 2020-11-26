@@ -114,6 +114,7 @@ public class SumElement extends javax.swing.JFrame {
         jLabel2.setText("STATUS");
 
         displayStatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+	displayStatus.setEditable(false);
         displayStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DisplayStatusActionPerformed(evt);
